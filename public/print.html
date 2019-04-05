@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>component-based-project</title>
+  </head>
+  <body>
+    
+        <div id="app" class="printing">
+                <h1>Printd</h1>
+            
+                <p>
+                  This is an <b>example!</b> using a <a href="https://vuejs.org/" target="_blank">VueJS</a> <em>component</em>. 🚀
+                </p>
+              
+                <a href="https://vuejs.org/" target="_blank"><img src="https://vuejs.org/images/logo.png" width="140" height="140"></a>
+            
+            <pre>
+              import Printd from 'printd'
+            
+              const p: Printd = new Printd()
+              p.print(this.$el, '.color { color: blue; }')
+            </pre>
+            
+                <button @click="print">Print this component</button>
+            </div>
+   
+  </body>
+
+
+  <script>
+   import Vue from 'vue';
+
+   export default{
+    el: '#app',
+  
+  data(){
+  return {
+    cssText: `
+      .printing {
+        font-family: sans-serif;
+        width: 500px;
+        border: solid 1px #ccc;
+        text-align: center;
+        padding: 1em;
+        margin: 2em auto;
+      }
+
+      button {
+        background-color: #f0f0f0;
+        border: solid 1px #bbb;
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 5px;
+      }
+
+      pre {
+        color: #c7254e;
+      }
+    `}
+  },
+  
+  mounted () {
+    console.log('when component is mounted!')
+
+    const { Printd } = window.printd
+
+    this.d = new Printd()
+
+
+    const { contentWindow } = this.d.getIFrame()
+
+    contentWindow.addEventListener(
+      'beforeprint', () => console.log('before print event!')
+    )
+    contentWindow.addEventListener(
+      'afterprint', () => console.log('after print event!')
+    )
+  },
+  
+  methods: {
+
+    print () {
+      this.d.print( this.$el, [this.cssText])
+    }
+
+  }
+}
+
+  
+  </script>
+
+
+
+  <style>
+  
+  .printing {
+  font-family: sans-serif;
+  max-width: 600px;
+  border: solid 1px #ccc;
+  text-align: center;
+  padding: 1em;
+  margin: 2em auto;
+}
+
+button {
+  background-color: #f0f0f0;
+  border: solid 1px #bbb;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px; 
+}
+
+pre {
+  color: #c7254e;
+}
+
+  </style>
+</html>

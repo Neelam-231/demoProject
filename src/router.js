@@ -14,6 +14,16 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/print',
+      name: 'print',
+      component: () => import(/* webpackChunkName: "about" */ './views/print.vue'),
+    },
+    {
+      path: '/table',
+      name: 'table',
+      component: () => import(/* webpackChunkName: "about" */ './views/table.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

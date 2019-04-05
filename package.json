@@ -9,7 +9,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "buefy": "^0.7.3",
+    "printd": "^1.3.0",
     "vue": "^2.6.6",
+    "vue-html-to-paper": "^1.0.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -21,7 +24,7 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.5.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^3.1.1",
