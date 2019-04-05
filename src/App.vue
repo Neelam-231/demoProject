@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link>|
       <router-link to="/print">Print</router-link>|
        <router-link to="/table">Table</router-link>
+        <router-link to="/table">New Page</router-link>
     </div>
     <router-view/>
   </div>
